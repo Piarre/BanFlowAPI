@@ -21,23 +21,25 @@ import java.util.List;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String fullName;
+    Integer id;
+    String firstName;
+    String lastName;
     String email;
     String password;
 
     @Enumerated(EnumType.STRING)
     Role role;
 
-    public User(String fullName, String email, String password) {
-        this.fullName = fullName;
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.role = Role.USER;
     }
 
-    public User(String fullName, String email, String password, Role role) {
-        this.fullName = fullName;
+    public User(String firstName, String lastName, String email, String password, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.role = role;
